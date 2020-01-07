@@ -5,28 +5,15 @@ MAX_INT = 2**31 - 1
 class Solution():
     @staticmethod
     def isPalindrome(x):
-        if x < 0:
+        if x < 0 or (x != 0 and x % 10 == 0):
             return False 
 
-        try:
-            reversed_x = Solution.reverse(x)
-            return reversed_x == x
-        except:
-            return False
-
-    @staticmethod
-    def reverse(x):
-        reversed_integer = 0
-
-        while x > 0:
-            reversed_integer = reversed_integer * 10 + x % 10 
+        reversed_second_half = 0
+        while x > reversed_second_half:
+            reversed_second_half = reversed_second_half * 10 + x % 10
             x //= 10
 
-        if reversed_integer > MAX_INT:
-            raise ValueError('Could not reverse integer due to overflow')
-
-        return reversed_integer
-
+        return x == reversed_second_half or x == reversed_second_half // 10
         
 class Test(unittest.TestCase):
     def test_given_case1(self):
