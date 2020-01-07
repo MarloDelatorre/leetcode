@@ -5,39 +5,19 @@ MAX_INT = 2**31 - 1
 class Solution():
     @staticmethod
     def reverse(x):
-        positive = x >= 0
-        abs_value = abs(x)
-        num_places = Solution.count_places(abs_value)
         reversed_integer = 0
+        abs_value = abs(x)
 
-        while abs_value != 0 and abs_value % 10 == 0:
-            abs_value //= 10
-
-        while num_places > 0:
+        while abs_value > 0:
             remainder = abs_value % 10
             abs_value //= 10
-
-            reversed_integer += remainder * 10**(num_places - 1)
-            num_places -= 1
+            reversed_integer *= 10
+            reversed_integer += remainder
 
         if reversed_integer > MAX_INT:
             return 0
 
-        if not positive:
-            reversed_integer *= -1
-
-        return reversed_integer 
-
-    @staticmethod
-    def count_places(x):
-        count = 0
-        while x != 0 and x % 10 == 0:
-            x //= 10
-
-        while x > 0:
-            count += 1
-            x //= 10
-        return count
+        return reversed_integer if x >= 0 else -reversed_integer
 
 class Test(unittest.TestCase):
     def test_given_case_1(self):
