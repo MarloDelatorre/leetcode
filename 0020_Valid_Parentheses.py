@@ -4,23 +4,18 @@ class Solution:
     @staticmethod
     def isValid(s):
         stack = []
-        open_brackets = set("([{")
-        
+        bracket_map = {
+            ")": "(",
+            "}": "{",
+            "]": "["
+        }
+
         for char in s:
-            length = len(stack)
-            if char in open_brackets:
+            if char in bracket_map.values():
                 stack.append(char)
-            elif char == ')':
-                if length == 0 or stack.pop() != '(':
-                    return False
-            elif char == ']':
-                if length == 0 or stack.pop() != '[':
-                    return False
-            elif char == '}':
-                if length == 0 or stack.pop() != '{':
-                    return False
             else:
-                raise Exception('Unexpected character given')
+                if len(stack) <= 0 or stack.pop() != bracket_map[char]:
+                    return False
 
         return len(stack) == 0
 
