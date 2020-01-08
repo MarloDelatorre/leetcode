@@ -27,49 +27,73 @@ class Solution():
 class Test(unittest.TestCase):
     def test_given_case(self):
         self.assertListEqual(
-            Solution.merge([1,2,3,0,0,0], 3, [2,5,6], 3),
+            Solution.merge(
+                [1,2,3,0,0,0], 3,
+                [2,5,6], 3
+            ),
             [1,2,2,3,5,6]
         )
     
     def test_empty_arrays(self):
         self.assertListEqual(
-            Solution.merge([], 0, [], 0),
+            Solution.merge(
+                [], 0,
+                [], 0
+            ),
             []
         )
 
     def test_first_empty_second_not(self):
         self.assertListEqual(
-            Solution.merge([0], 0, [1], 1),
+            Solution.merge(
+                [0], 0,
+                [1], 1
+            ),
             [1]
         )
 
     def test_second_empty_first_not(self):
         self.assertListEqual(
-            Solution.merge([1], 1, [], 0),
+            Solution.merge(
+                [1], 1,
+                [], 0
+            ),
             [1]
         )
 
     def test_single_values(self):
         self.assertListEqual(
-            Solution.merge([1, 0], 1, [2], 1),
+            Solution.merge(
+                [1, 0], 1,
+                [2], 1
+            ),
             [1, 2]
         )
 
     def test_m_equals_n(self):
         self.assertListEqual(
-            Solution.merge([1, 4, 7, 0, 0, 0], 3, [2, 3, 9], 3),
+            Solution.merge(
+                [1, 4, 7, 0, 0, 0], 3,
+                [2, 3, 9], 3
+            ),
             [1, 2, 3, 4, 7, 9]
         )
 
     def test_m_less_than_n(self):
         self.assertListEqual(
-            Solution.merge([1, 4, 0, 0, 0, 0], 2, [2, 3, 7, 9], 4),
+            Solution.merge(
+                [1, 4, 0, 0, 0, 0], 2,
+                [2, 3, 7, 9], 4
+            ),
             [1, 2, 3, 4, 7, 9]
         )
 
     def test_m_greater_than_n(self):
         self.assertListEqual(
-            Solution.merge([1, 4, 7, 9, 0, 0], 4, [2, 3], 2),
+            Solution.merge(
+                [1, 4, 7, 9, 0, 0], 4,
+                [2, 3], 2
+            ),
             [1, 2, 3, 4, 7, 9]
         )
 

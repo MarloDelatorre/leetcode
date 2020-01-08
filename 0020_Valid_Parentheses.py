@@ -3,12 +3,12 @@ import unittest
 class Solution:
     @staticmethod
     def isValid(s):
-        stack = []
         bracket_map = {
             ")": "(",
             "}": "{",
             "]": "["
         }
+        stack = []
 
         for char in s:
             if char in bracket_map.values():
@@ -29,8 +29,7 @@ class Test(unittest.TestCase):
             ("{[]}", True),
         ]
         for input, expected_output in test_cases:
-            actual = Solution.isValid(input)
-            self.assertEqual(actual, expected_output)
+            self.assertEqual(Solution.isValid(input), expected_output)
 
     def test_empty_string(self):
         self.assertTrue(Solution.isValid(""))

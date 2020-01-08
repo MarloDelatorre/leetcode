@@ -17,24 +17,22 @@ class Solution():
 
 class Test(unittest.TestCase):
     def test_given_case(self):
-        actual = Solution.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])
-        self.assertEqual(actual, 6)
+        self.assertEqual(
+            Solution.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]),
+            6
+        )
 
     def test_empty_list(self):
-        actual = Solution.maxSubArray([])
-        self.assertEqual(actual, 0)
+        self.assertEqual(Solution.maxSubArray([]), 0)
 
     def test_zero_value(self):
-        actual = Solution.maxSubArray([0])
-        self.assertEqual(actual, 0)
+        self.assertEqual(Solution.maxSubArray([0]), 0)
 
     def test_positives_values(self):
-        actual = Solution.maxSubArray([1,2,3,0,7])
-        self.assertEqual(actual, 13)
+        self.assertEqual(Solution.maxSubArray([1,2,3,0,7]), 13)
 
     def test_negatives_values(self):
-        actual = Solution.maxSubArray([-2,-3,-1,-5])
-        self.assertEqual(actual, -1)
+        self.assertEqual(Solution.maxSubArray([-2,-3,-1,-5]), -1)
 
 if __name__ == '__main__':
     unittest.main()
