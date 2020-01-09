@@ -4,15 +4,10 @@ class Solution():
     @staticmethod
     def moveZeroes(nums):
         insert_index = 0
-        for num in nums:
+        for i, num in enumerate(nums):
             if num != 0:
-                nums[insert_index] = num
+                nums[insert_index], nums[i] = num, nums[insert_index] 
                 insert_index += 1
-
-        while insert_index < len(nums):
-            nums[insert_index] = 0
-            insert_index += 1
-
         return nums
 
 class Test(unittest.TestCase):
