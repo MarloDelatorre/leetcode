@@ -1,13 +1,4 @@
 import unittest
-from operator import attrgetter
-
-class Log():
-    def __init__(self, identifier, data):
-        self.identifier = identifier
-        self.data = data
-
-    def __repr__(self):
-        return f"{self.identifier} {self.data}"
 
 class Solution():
     @staticmethod
@@ -16,15 +7,18 @@ class Solution():
         letter_logs = []
 
         for log in logs:
-            identifier, *data = log.split()
-            if data[0].isalpha():
-                letter_logs.append(Log(identifier, " ".join(data)))
-            else:
+            _, data = log.split(" ", 1)
+            if data[0].isdigit():
                 digit_logs.append(log)
-            
-        letter_logs.sort(key=attrgetter('data', 'identifier'))
-        letter_logs = [repr(log) for log in letter_logs]
-        
+            else:
+                letter_logs.append(log)
+
+        def letter_log_key(log):
+            identifier, data = log.split(" ", 1)
+            return (data, identifier)
+
+        letter_logs.sort(key=letter_log_key)
+
         return letter_logs + digit_logs
 
 class Test(unittest.TestCase):
