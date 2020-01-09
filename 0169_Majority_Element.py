@@ -1,10 +1,19 @@
 import unittest
-from collections import Counter
 
 class Solution():
     @staticmethod
     def majorityElement(nums):
-        return Counter(nums).most_common(1)[0][0]
+        count = 0
+        majority = None
+        for num in nums:
+            if count == 0:
+                majority = num
+            if num == majority:
+                count += 1
+            else:
+                count -= 1
+        return majority 
+
 
 class Test(unittest.TestCase):
     def test_given_case_1(self):
