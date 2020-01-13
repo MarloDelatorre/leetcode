@@ -3,21 +3,15 @@ from unittest import main, TestCase
 class Solution():
     @staticmethod
     def isMonotonic(A):
-        if len(A) == 1:
-            return True
+        increasing = decreasing = True
 
-        non_repeating_number = A[1]
-        for num in A:
-            if num != A[0]:
-                non_repeating_number = num
-                break
-        
-        increasing = A[0] < non_repeating_number 
         for i in range(len(A) - 1):
-            if ((increasing and A[i] > A[i + 1])
-                    or (not increasing and A[i] < A[i + 1])):
-                return False
-        return True
+            if A[i] > A[i + 1]:
+                increasing = False
+            if A[i] < A[i + 1]:
+                decreasing = False
+
+        return increasing or decreasing
 
 class Test(TestCase):
     def test_true_cases(self):
