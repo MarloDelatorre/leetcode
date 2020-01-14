@@ -1,5 +1,5 @@
 import unittest
-from datastructures.linkedlist import ListNode, to_linkedlist, to_list
+from datastructures.linkedlist import ListNode, linkedlist, to_list
 
 class Solution():
     @staticmethod
@@ -26,8 +26,8 @@ class Solution():
 class Test(unittest.TestCase):
     def test_given_case(self):
         merged = Solution.merge(
-            to_linkedlist([1,2,4]),
-            to_linkedlist([1,3,4])
+            linkedlist([1,2,4]),
+            linkedlist([1,3,4])
         )
         self.assertListEqual(
             to_list(merged),
@@ -36,8 +36,8 @@ class Test(unittest.TestCase):
 
     def test_empty_case(self):
         merged = Solution.merge(
-            to_linkedlist([]),
-            to_linkedlist([])
+            linkedlist([]),
+            linkedlist([])
         )
         self.assertListEqual(
             to_list(merged),
@@ -46,8 +46,8 @@ class Test(unittest.TestCase):
 
     def test_first_empty_second_not(self):
         merged = Solution.merge(
-            to_linkedlist([]),
-            to_linkedlist([1])
+            linkedlist([]),
+            linkedlist([1])
         )
         self.assertListEqual(
             to_list(merged),
@@ -56,8 +56,8 @@ class Test(unittest.TestCase):
     
     def test_second_empty_first_not(self): 
         merged = Solution.merge(
-            to_linkedlist([1]),
-            to_linkedlist([])
+            linkedlist([1]),
+            linkedlist([])
         )
         self.assertListEqual(
             to_list(merged),
@@ -66,8 +66,8 @@ class Test(unittest.TestCase):
 
     def test_one_node_each(self):
         merged = Solution.merge(
-            to_linkedlist([1]),
-            to_linkedlist([2])
+            linkedlist([1]),
+            linkedlist([2])
         )
         self.assertListEqual(
             to_list(merged),
@@ -76,8 +76,8 @@ class Test(unittest.TestCase):
     
     def test_three_nodes_each(self):
         merged = Solution.merge(
-            to_linkedlist([1,3,5]),
-            to_linkedlist([2,4,6])
+            linkedlist([1,3,5]),
+            linkedlist([2,4,6])
         )
         self.assertListEqual(
             to_list(merged),
@@ -86,8 +86,8 @@ class Test(unittest.TestCase):
     
     def test_two_nodes_four_nodes(self):
         merged = Solution.merge(
-            to_linkedlist([1,3]),
-            to_linkedlist([1,2,4,5])
+            linkedlist([1,3]),
+            linkedlist([1,2,4,5])
         )
         self.assertListEqual(
             to_list(merged),
@@ -96,8 +96,8 @@ class Test(unittest.TestCase):
 
     def test_four_nodes_two_nodes(self):
         merged = Solution.merge(
-            to_linkedlist([1,2,4,5]),
-            to_linkedlist([1,3])
+            linkedlist([1,2,4,5]),
+            linkedlist([1,3])
         )
         self.assertListEqual(
             to_list(merged),

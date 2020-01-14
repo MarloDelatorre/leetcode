@@ -1,4 +1,4 @@
-from typing import List
+from typing import Iterable, List
 
 class ListNode():
     def __init__(self, value):
@@ -12,7 +12,7 @@ def to_list(node: ListNode) -> List:
         node = node.next
     return values 
 
-def to_linkedlist(values):
+def linkedlist(values: Iterable) -> ListNode:
     sentinel = ListNode(None)
     tail = sentinel
     for value in values:

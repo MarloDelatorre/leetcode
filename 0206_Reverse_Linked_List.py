@@ -1,5 +1,5 @@
 from unittest import main, TestCase
-from datastructures.linkedlist import ListNode, to_linkedlist, to_list
+from datastructures.linkedlist import ListNode, linkedlist, to_list
 
 def reverseList(head):
     prev = None
@@ -13,7 +13,7 @@ def reverseList(head):
 class Test(TestCase):
     def test_given_case(self):
         values = [1, 2, 3, 4, 5]
-        rev_list = reverseList(to_linkedlist(values))
+        rev_list = reverseList(linkedlist(values))
         self.assertListEqual(
             to_list(rev_list),
             values[::-1]
@@ -21,7 +21,7 @@ class Test(TestCase):
 
     def test_empty_list(self):
         values = []
-        rev_list = reverseList(to_linkedlist(values))
+        rev_list = reverseList(linkedlist(values))
         self.assertListEqual(
             to_list(rev_list),
             []
@@ -29,7 +29,7 @@ class Test(TestCase):
     
     def test_single_value(self):
         values = [1]
-        rev_list = reverseList(to_linkedlist(values))
+        rev_list = reverseList(linkedlist(values))
         self.assertListEqual(
             to_list(rev_list),
             [1]

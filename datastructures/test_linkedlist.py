@@ -1,4 +1,4 @@
-from linkedlist import ListNode, to_list, to_linkedlist
+from linkedlist import ListNode, linkedlist, to_list
 from unittest import main, TestCase
 
 class LinkedListTestCase(TestCase):
@@ -15,20 +15,20 @@ class LinkedListTestCase(TestCase):
         node.next.next = ListNode(3)
         self.assertListEqual(to_list(node), [1, 2, 3])
 
-    def test_to_linkedlist_empty(self):
-        self.assertIsNone(to_linkedlist([]))
+    def test_linkedlist_empty(self):
+        self.assertIsNone(linkedlist([]))
 
-    def test_to_linkedlist_value(self):
-        linkedlist = to_linkedlist([1])
-        self.assertEqual(linkedlist.value, 1)
+    def test_linkedlist_value(self):
+        links = linkedlist([1])
+        self.assertEqual(links.value, 1)
 
-    def test_to_linkedlist_values(self):
+    def test_linkedlist_values(self):
         values = [1, 2, 3]
-        linkedlist = to_linkedlist(values)
+        links = linkedlist(values)
         for value in values:
             with self.subTest(value):
-                self.assertEqual(linkedlist.value, value)
-                linkedlist = linkedlist.next
+                self.assertEqual(links.value, value)
+                links = links.next
                 
 if __name__ == "__main__":
     main()
