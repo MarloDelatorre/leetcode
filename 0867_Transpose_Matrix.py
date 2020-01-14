@@ -1,4 +1,5 @@
-from unittest import main, TestCase
+from unittest import main
+from testutil import MatrixTestCase
 
 def transpose(A):
     m, n = len(A), len(A[0])
@@ -9,7 +10,7 @@ def transpose(A):
             transposed[col].append(A[row][col])
     return transposed
 
-class Test(TestCase):
+class Test(MatrixTestCase):
     def test_given_case_1(self):
         transposed = transpose([
             [1, 2 ,3],
@@ -38,13 +39,5 @@ class Test(TestCase):
     def test_single_value(self):
         self.assert_matrix_equal([[1]], [[1]])
 
-    def assert_matrix_equal(self, A, B):
-        self.assertEqual(len(A), len(B))
-        self.assertEqual(len(A[0]), len(B[0]))
-
-        for row in range(len(A)):
-            for col in range(len(A[0])):
-                self.assertEqual(A[row][col], B[row][col])
-            
 if __name__ == "__main__":
     main()
