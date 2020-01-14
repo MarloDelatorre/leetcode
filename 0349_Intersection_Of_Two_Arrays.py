@@ -1,4 +1,3 @@
-from collections import Counter
 from unittest import main, TestCase
 
 def intersection(nums1, nums2):
