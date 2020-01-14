@@ -1,20 +1,19 @@
 from unittest import main, TestCase
 
 def shortestToChar(S, C):
-    distances = [0] * len(S)
-    c_index = S.find(C) 
-    for _ in range(c_index, len(S)):
-        for left in range(c_index - 1, -1, -1):
-            distance = c_index - left
-            if S[left] == C or 0 < distances[left] <= distance:
-                break
-            distances[left] = distance 
-        for right in range(c_index + 1, len(S), 1):
-            distance = right - c_index 
-            if S[right] == C:
-                c_index = right
-                break
-            distances[right] = distance
+    distances = []
+    distance = float("inf")
+    for s in S:
+        if s == C:
+            distance = 0
+        distances.append(distance)
+        distance += 1
+    for i in range(len(S) - 1, -1, -1):
+        s = S[i]
+        if s == C:
+            distance = 0
+        distances[i] = min(distances[i], distance)
+        distance += 1
     return distances
 
 
