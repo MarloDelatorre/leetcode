@@ -5,16 +5,11 @@ def removeDuplicates(nums):
         return 0
 
     insert_index = 0
-    current_num = nums[0]
 
     for num in nums:
-        if num != current_num:
-            nums[insert_index] = current_num
+        if num != nums[insert_index]:
             insert_index += 1
-            current_num = num
-
-    if nums[insert_index] != current_num:
-        nums[insert_index] = current_num 
+            nums[insert_index] = num 
 
     return insert_index + 1 
 
