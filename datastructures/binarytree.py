@@ -2,8 +2,8 @@ from collections import deque
 from typing import Iterable, List
 
 class TreeNode():
-    def __init__(self, value):
-        self.value = value
+    def __init__(self, val):
+        self.val = val
         self.left = None
         self.right = None
 
@@ -19,7 +19,7 @@ def to_list(node: TreeNode) -> List:
         else:
             queue.append(popped.left)
             queue.append(popped.right)
-            values.append(popped.value)
+            values.append(popped.val)
     while values and values[-1] is None:
         values.pop()
     return values
